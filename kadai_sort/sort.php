@@ -13,26 +13,29 @@
         $array = [15, 4, 18, 23, 10 ];
 
         function sort_2way($array, $order){
-            if ($order === 'asc') {
+            if ($order === true) {
             sort($array); // 昇順
-            } 
-            elseif ($order === 'desc') {
-            
-            rsort($array); // 降順
+            foreach ($array as $value) {
+                
+                echo $value . '<br>';
             }
-            return $array;
+            } 
+            else {rsort($array); // 降順
+            foreach($array as $value){
+                
+                echo $value . '<br>';
+        }
+            }
         }
 
+        // 関数を呼び出す（true: 昇順, false: 降順）
         echo '昇順にソートします。<br>';
-        $sort_asc= sort_2way($array, 'asc');
-        foreach ($sort_asc as $value){
-            echo $value . '<br>';
-        }
+        sort_2way($array, true);  // 昇順
         echo '降順にソートします。<br>';
-        $sort_desc= sort_2way($array, 'desc');
-        foreach($sort_desc as $value){
-            echo $value . '<br>';
-        }
+        sort_2way($array, false); // 降順
+
+
+        
         ?>
     </p>
 </body>
